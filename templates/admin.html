@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Admin Panel</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="admin-page">
+
+    <h1>ویرایش سوالات</h1>
+
+    <a href="/admin/add">
+        <button>
+            + افزودن سوال جدید
+        </button>
+    </a>
+
+    {% for question in questions %}
+
+    <form
+        action="/admin/update/{{ question['id'] }}"
+        method="POST"
+        class="question-card">
+
+        <div class="number">
+            {{ loop.index }}
+        </div>
+
+        <input
+            class="question-input"
+            name="question"
+            value="{{ question['question'] }}">
+
+        <div class="options">
+
+            <input
+                name="option1"
+                value="{{ question['option1'] }}">
+
+            <input
+                name="option2"
+                value="{{ question['option2'] }}">
+
+            <input
+                name="option3"
+                value="{{ question['option3'] }}">
+
+            <input
+                name="option4"
+                value="{{ question['option4'] }}">
+
+        </div>
+
+        <select name="answer">
+
+            <option value="1" {% if question["answer"] == 1 %}selected{% endif %}>1</option>
+
+            <option value="2" {% if question["answer"] == 2 %}selected{% endif %}>2</option>
+
+            <option value="3" {% if question["answer"] == 3 %}selected{% endif %}>3</option>
+
+            <option value="4" {% if question["answer"] == 4 %}selected{% endif %}>4</option>
+
+        </select>
+
+        <button
+            type="submit"
+            class="save-btn">
+            ذخیره
+        </button>
+
+        <a href="/admin/delete/{{ question['id'] }}">
+
+            <button
+                type="button"
+                class="delete-btn">
+                حذف
+            </button>
+
+        </a>
+
+    </form>
+
+    {% endfor %}
+
+</div>
+
+</body>
+
+</html>

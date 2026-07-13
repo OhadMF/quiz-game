@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <title>Quiz Game</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+    <h2>{{ question["question"] }}</h2>
+
+    <a href="/answer/1"><button>{{ question["option1"] }}</button></a><br><br>
+    <a href="/answer/2"><button>{{ question["option2"] }}</button></a><br><br>
+    <a href="/answer/3"><button>{{ question["option3"] }}</button></a><br><br>
+    <a href="/answer/4"><button>{{ question["option4"] }}</button></a><br><br>
+
+</div>
+
+</body>
+
+</html>

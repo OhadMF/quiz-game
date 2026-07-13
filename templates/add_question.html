@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Add Question</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>افزودن سوال</h1>
+
+<form method="POST">
+
+<input type="text" name="question" placeholder="متن سوال" required><br><br>
+
+<input type="text" name="option1" placeholder="گزینه اول" required><br><br>
+
+<input type="text" name="option2" placeholder="گزینه دوم" required><br><br>
+
+<input type="text" name="option3" placeholder="گزینه سوم" required><br><br>
+
+<input type="text" name="option4" placeholder="گزینه چهارم" required><br><br>
+
+<input type="number" name="answer" min="1" max="4" placeholder="شماره پاسخ صحیح" required><br><br>
+
+<button type="submit">
+
+ذخیره سوال
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>
